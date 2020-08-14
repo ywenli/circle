@@ -9,8 +9,9 @@ services:
                    #ローカルのmysql-dateにデータを保存する（コンテナが消えてもデータが残る）
     environment:
       MYSQL_ROOT_PASSWORD: root
-
-
+      MYSQL_DATABASE: mysql
+    ports:
+      - "3306:3306"
 
   app:               #コンテナの名前(なんでもok)
     build: .         #Dockefileを指定

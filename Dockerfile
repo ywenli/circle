@@ -1,8 +1,9 @@
-FROM ruby:2.5.3                         
+FROM ruby:2.5.3
 #rubyのバージョン指定
 RUN gem install rails
 #gemのインストール
-RUN apt-get update && apt-get install -y nodejs mysql-client
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - \
+    && apt-get update && apt-get install -y nodejs mysql-client
 #パッケージのアップデート　インストール
 
 COPY Gemfile /Gemfile
