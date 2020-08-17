@@ -94,4 +94,24 @@ RSpec.describe User, type: :model do
       expect(user.reload.email).to eq 'foo@example.com'
     end
   end
+
+  describe 'password' do
+    it 'should be present (non-blank)' do
+      user.password = user.password_confirmation = " " * 6
+      expect(user).to be_invalid
+    end
+    context '5 characters' do
+      it 'is too short' do
+        user.password = user.password_confirmation = "a" * 5
+        expect(user).to be_invalid
+      end
+    end
+    context '6 characters' do
+      it 'not too short' do
+        user.password = user.password_confirmation = "a" * 6
+        expect(user).to be_valid
+      end
+    end
+  end
 end
+
