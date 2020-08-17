@@ -31,4 +31,22 @@ RSpec.describe User, type: :model do
       end
     end
   end
+
+  describe 'email' do
+    it 'should be presence' do
+      user.email = " "
+      expect(user).to be_invalid
+    end
+    context  '255 characters' do
+      it 'is valid' do
+        user.email = "a" * 243 + "@example.com"
+      end
+    end
+    context  '256 characters' do
+      it 'is invalid' do
+        user.email = "a" * 244 + "@example.com"
+      end
+    end
+
+  end
 end
