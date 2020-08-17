@@ -5,9 +5,20 @@
     %title= full_title(yield(:title))
     = csrf_meta_tags
     = csp_meta_tag
+
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}
+
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     = render 'layouts/header'
+
+    - if flash[:notice]
+      .alert.alert-info
+        = flash[:notice]
+    - if flash[:alert]
+      .alert.alert-danger
+        = flash[:alert]
     .container
       = yield
+    = render 'layouts/footer'
