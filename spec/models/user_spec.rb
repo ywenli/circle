@@ -47,6 +47,40 @@ RSpec.describe User, type: :model do
         user.email = "a" * 244 + "@example.com"
       end
     end
+    it 'should be valid address' do
+      user.email = "user@example.com"
+      expect(user).to be_valid
 
+      user.email = "USER@foo.COM"
+      expect(user).to be_valid
+
+      user.email = "A_US-ER@foo.bar.org"
+      expect(user).to be_valid
+
+      user.email = "first.last@foo.jp"
+      expect(user).to be_valid
+
+      user.email = "alice+bob@baz.cn"
+      expect(user).to be_valid
+    end
+    it 'should not be invalid address' do
+      user.email = "user@example,com"
+      expect(user).to be_invalid
+
+      user.email = "user_at_foo.org"
+      expect(user).to be_invalid
+
+      user.email = "user.name@example."
+      expect(user).to be_invalid
+
+      user.email = "foo@bar_baz.com"
+      expect(user).to be_invalid
+
+      user.email = "foo@bar+baz.com"
+      expect(user).to be_invalid
+
+      user.email = "foo@bar..com"
+      expect(user).to be_invalid
+    end
   end
 end
