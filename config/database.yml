@@ -9,12 +9,12 @@ default: &default
 
 development:
   <<: *default
-  database: rails_app_development
+  database: circle_app_development
 
 
 test:
   <<: *default
-  database: rails_app_test
+  database: circle_app_test
 
 production:
   <<: *default
