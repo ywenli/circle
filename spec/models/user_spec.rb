@@ -82,5 +82,16 @@ RSpec.describe User, type: :model do
       user.email = "foo@bar..com"
       expect(user).to be_invalid
     end
+    it "should be unique" do
+      duplicate_user = user.dup
+      duplicate_user.email = user.email.upcase
+      user.save!
+      expect(duplicate_user).to be_invalid
+    end
+    it "should be saved as lower-case" do
+      user.email = "Foo@ExAMPle.CoM"
+      user.save!
+      expect(user.reload.email).to eq 'foo@example.com'
+    end
   end
 end
