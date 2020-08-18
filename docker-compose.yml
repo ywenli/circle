@@ -1,15 +1,14 @@
-version: '3'
+version: '3.7'
 services:
-  mysql:           #コンテナの名前(なんでもok)
-    image: mysql:8.0.13
-    command: --default-authentication-plugin=mysql_native_password
-                   #MySQL -v8.0から認証方式が変更されたので、mysql -v5.0に合わせるプラグイン
+  db:           #コンテナの名前(なんでもok)
+    image: mysql:5.7
     volumes:
-      - "./mysql-data:/var/lib/mysql"
-                   #ローカルのmysql-dateにデータを保存する（コンテナが消えてもデータが残る）
+      - "./db/mysql-data:/var/lib/mysql"
+                   #ローカルのmysql-dataにデータを保存する（コンテナが消えてもデータが残る）
     environment:
+      MYSQL_USER: root
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: mysql
+      MYSQL_DATABASE: root
     ports:
       - "3306:3306"
 
@@ -23,7 +22,7 @@ services:
       - "3000:3000"
     tty: true
     depends_on:
-      - mysql        #mysqlコンテナにアクセスする
+      - db            #mysqlコンテナにアクセスする
     working_dir: "/app" #コンテナに入った時に直接appディレクトリに入る
 
 volumes:
