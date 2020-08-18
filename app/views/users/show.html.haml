@@ -1,11 +1,21 @@
-.usershowPage
-  .container
-    %header.header
-      %p.header_logo
-        = link_to image_tag("logo.png", width: 100)
-    .userInfo
-      .userInfo_name= @user.username
-    - if current_user.id == @user.id
-      .userAction
-        .userAction_edit.userAction_common
-        = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "fas fa-cog fa-2x"
+.profile-wrap
+  .row
+    .col-md-8
+      .row
+        %h1= @user.username
+        = link_to "プロフィールを編集", edit_user_registration_path, class: "btn btn-outline-dark common-btn edit-profile-btn"
+        %button.setting{"data-target" => "#exampleModal", "data-toggle" => "modal", :type => "button"}
+        #exampleModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "exampleModalLabel", :role => "dialog", :tabindex => "-1"}
+          .modal-dialog{:role => "document"}
+            .modal-content
+              .modal-header
+                %h5#exampleModalLabel.modal-title 設定
+                %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+                  %span{"aria-hidden" => "true"} ×
+              .list-group.text-center
+                = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "list-group-item list-group-item-action"
+                = link_to "キャンセル", "#", class: "list-group-item list-group-item-action", "data-dismiss": "modal"
+      - if @user == current_user
+        .row
+          %p
+            = @user.email
