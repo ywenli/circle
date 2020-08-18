@@ -9,12 +9,12 @@ default: &default
 
 development:
   <<: *default
-  database: circle_app_v1_development
+  database: circle_app_development
 
 
 test:
   <<: *default
-  database: circle_app_v1_test
+  database: circle_app_test
 
 production:
   <<: *default
