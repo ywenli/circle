@@ -1,4 +1,9 @@
+/* Library */
 @import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+/* pages */
 @import "users/signin_signup.scss";
 @import "users/show";
 @import "users/edit";
