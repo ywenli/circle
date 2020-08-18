@@ -3,18 +3,18 @@ default: &default
   encoding: utf8
   username: root
   password: root
-  host: mysql
+  host: db
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
 
 development:
   <<: *default
-  database: circle_app_development
+  database: circle_app_v1_development
 
 
 test:
   <<: *default
-  database: circle_app_test
+  database: circle_app_v1_test
 
 production:
   <<: *default
