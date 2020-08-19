@@ -4,6 +4,7 @@
 @import "font-awesome";
 
 /* pages */
-@import "users/signin_signup.scss";
+@import "layouts/sidebar";
+@import "users/signin_signup";
 @import "users/show";
 @import "users/edit";
