@@ -10,7 +10,15 @@
 
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+
   %body
+    - if user_signed_in?
+      / ログインしているとき
+      = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "float-right btn btn-light mt-4 mr-4"
+    - else
+      / ログインしていないとき
+      = link_to "ログイン", new_user_session_path, class: "float-right btn btn-info mt-4 mr-4"
+
     .container
       .row
         #wrapper
@@ -33,9 +41,9 @@
                   %span{:style => "margin-left:6px;"} ヘルプ
 
           / Page Content
-        #page-content-wrapper
-          .container
-            = yield
+          #page-content-wrapper
+            .container
+              = yield
 
     - if flash[:notice]
       .alert.alert-info
