@@ -1,43 +1,29 @@
 %head
-  %link#bootstrap-css{:href => "//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css", :rel => "stylesheet"}/
-  %script{:src => "//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"}
-  %script{:src => "//code.jquery.com/jquery-1.11.1.min.js"}
-  / ---- Include the above in your HEAD tag --------
   %link{:href => "//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css", :rel => "stylesheet"}/
 
 %body
-  .container
-    .row
-      #wrapper
-        / Sidebar
-        #sidebar-wrapper
-          %ul.sidebar-nav
-            %li.sidebar-brand
-              %a#menu-toggle
-                %i.fa.fa-bars{"aria-hidden" => "true", :style => "font-size:20px !Important;"}
-            %li
-              %a{:href => "#"}
-                %i.fa.fa-sort-alpha-asc{"aria-hidden" => "true"}
-                %span{:style => "margin-left:10px;"} Section
-            %li
-              %a{:href => "#"}
-                %i.fa.fa-play-circle-o{"aria-hidden" => "true"}
-                %span{:style => "margin-left:10px;"} Section
-            %li
-              %a{:href => "#"}
-                %i.fa.fa-puzzle-piece{"aria-hidden" => "true"}
-                %span{:style => "margin-left:10px;"} Section
+  #wrapper
+    / Sidebar
+    #sidebar-wrapper
+      %ul.sidebar-nav
+        %li.sidebar-brand
+          %a#menu-toggle
+            %i.fa.fa-bars{"aria-hidden" => "true", :style => "font-size:20px !Important;"}
+        %li
+          %a{:href => "#"}
+            %i.fas.fa-user{"aria-hidden" => "true"}
+            %span{:style => "margin-left:5px;"} マイページ
+        %li
+          %a{:href => "#"}
+            %i.fas.fa-cog{"aria-hidden" => "true"}
+            %span{:style => "margin-left:5px;"} 設定
+        %li
+          %a{:href => "#"}
+            %i.fas.fa-question-circle{"aria-hidden" => "true"}
+            %span{:style => "margin-left:5px;"} ヘルプ
 
-        / /#sidebar-wrapper
-        / Page Content
-        #page-content-wrapper
-          .container-fluid
-            .row
-              .col-lg-12
-                / /#page-content-wrapper
-                / /#wrapper
-                :javascript
-                  $("#menu-toggle").click(function(e) {
-                      e.preventDefault();
-                      $("#wrapper").toggleClass("toggled");
-                  });
+:javascript
+  $("#menu-toggle").click(function(e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+  });
