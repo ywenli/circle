@@ -1,26 +1,34 @@
 %head
   %link{:href => "//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css", :rel => "stylesheet"}/
-
 %body
-  #wrapper
-    / Sidebar
-    #sidebar-wrapper
-      %ul.sidebar-nav
-        %li.sidebar-brand
-          %a#menu-toggle
-            %i.fa.fa-bars{"aria-hidden" => "true", :style => "font-size:20px !Important;"}
-        %li
-          %a{:href => "#"}
-            %i.fas.fa-user{"aria-hidden" => "true"}
-            %span{:style => "margin-left:5px;"} マイページ
-        %li
-          %a{:href => "#"}
-            %i.fas.fa-cog{"aria-hidden" => "true"}
-            %span{:style => "margin-left:5px;"} 設定
-        %li
-          %a{:href => "#"}
-            %i.fas.fa-question-circle{"aria-hidden" => "true"}
-            %span{:style => "margin-left:5px;"} ヘルプ
+  .container
+    .row
+      %h2 Some text
+      #wrapper
+        #sidebar-wrapper
+          %ul.sidebar-nav{:style => "margin-left:0;"}
+            %li.sidebar-brand
+              %a#menu-toggle{:href => "#menu-toggle", :style => "margin-top:20px;float:right;"}
+                %i.fa.fa-bars{"aria-hidden" => "true", :style => "font-size:20px !Important;"}
+            %li
+              %a{:href => "#"}
+                %i.fas.fa-user{"aria-hidden" => "true"}
+                %span{:style => "margin-left:6px;"} マイページ
+            %li
+              %a{:href => "#"}
+                %i.fas.fa-cog{"aria-hidden" => "true"}
+                %span{:style => "margin-left:6px;"} 設定
+            %li
+              %a{:href => "#"}
+                %i.fas.fa-question-circle{"aria-hidden" => "true"}
+                %span{:style => "margin-left:6px;"} ヘルプ
+
+        / /#sidebar-wrapper
+        / Page Content
+        #page-content-wrapper
+          .container-fluid
+            .row
+              .col-lg-12
 
 :javascript
   $("#menu-toggle").click(function(e) {
