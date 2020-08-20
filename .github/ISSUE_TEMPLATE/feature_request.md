@@ -2,7 +2,7 @@
 name: Feature request
 about: Suggest an idea for this project
 title: feature/
-labels: enhancement, LEVEL2
+labels: LEVEL2, enhancement
 assignees: ywenli
 
 ---
