@@ -3,8 +3,7 @@ name: Bug report
 about: Create a report to help us improve
 title: bug/
 labels: LEVEL3, bug
-assignees: 'ywenli'
-projects: '開発'
+assignees: ''
 
 ---
 
