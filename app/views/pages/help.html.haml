@@ -1,2 +1,86 @@
-%h1 Help
-%p Sample text.
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Help
+    %link{:href => "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css", :rel => "stylesheet", :type => "text/css"}/
+  %body
+    .container
+      .row
+        .col-12
+          .row
+            %h1.col-lg-12.hedding.pl-4.pt-5
+              ヘルプ
+        .col-lg-12.mt-5
+          .container.bootstrap.snippet
+            .row.col-md-12
+              %h3.title-block.first-child Quick Search
+            .row.col-md-12.pb-4
+              %form.help-search{:role => "form"}
+                %label.sr-only{:for => "search"} Search
+                %input#search.form-control{:placeholder => "ご質問・問題の内容は？", :type => "search"}/
+            .row.pt-4
+              .col-sm-4.item.menu-lg
+                %i.fa.fa-users.text-primary
+                .content
+                  .title
+                    %a{:href => "#"} users
+                  .description
+                    Lorem ipsum dolor sit amet, consectetur.
+              .col-sm-4.item.menu-lg
+                %i.fa.fa-unlock-alt.text-primary
+                .content
+                  .title
+                    %a{:href => "#"} Data Locked
+                  .description
+                    Lorem ipsum dolor sit amet, consectetur.
+              .col-sm-4.item.menu-lg
+                %i.fa.fa-legal.text-primary
+                .content
+                  .title
+                    %a{:href => "#"} Informaion
+                  .description
+                    Lorem ipsum dolor sit amet, consectetur.
+            .row
+              .col-md-12.pt-4
+                %h3.title-block.second-child General Questions
+                #faqList.panel-group
+                  .panel.panel-default
+                    .panel-heading
+                      %h4.panel-title.p-3.border.rounded
+                        %a.collapsed{"data-parent" => "#faqList", "data-toggle" => "collapse", :href => "#questionOne"}
+                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ac tortor vitae lorem lobortis.
+                    #questionOne.panel-collapse.collapse{:style => "height: 0px;"}
+                      .panel-body.border.p-3
+                        %p.p-0.m-0 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ac tortor vitae lorem lobortis.
+                  .panel.panel-default
+                    .panel-heading
+                      %h4.panel-title.p-3.border.rounded
+                        %a.collapsed{"data-parent" => "#faqList", "data-toggle" => "collapse", :href => "#questionTwo"}
+                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ac tortor vitae lorem lobortis.
+                    #questionTwo.panel-collapse.collapse{:style => "height: 0px;"}
+                      .panel-body.border.p-3
+                        %p.p-0.m-0 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ac tortor vitae lorem lobortis.
+                  .panel.panel-default
+                    .panel-heading
+                      %h4.panel-title.p-3.border.rounded
+                        %a.collapsed{"data-parent" => "#faqList", "data-toggle" => "collapse", :href => "#questionThree"}
+                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ac tortor vitae lorem lobortis.
+                    #questionThree.panel-collapse.collapse{:style => "height: 0px;"}
+                      .panel-body.border.p-3
+                        %p.p-0.m-0 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ac tortor vitae lorem lobortis.
+                  .panel.panel-default
+                    .panel-heading
+                      %h4.panel-title.p-3.border.rounded
+                        %a{"data-parent" => "#faqList", "data-toggle" => "collapse", :href => "#collapseFour"}
+                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ac tortor vitae lorem lobortis.
+                    #collapseFour.panel-collapse.collapse.in{:style => ""}
+                      .panel-body.border.p-3
+                        %p.p-0.m-0 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ac tortor vitae lorem lobortis.
+                  .panel.panel-default
+                    .panel-heading
+                      %h4.panel-title.p-3.border.rounded
+                        %a{"data-parent" => "#faqList", "data-toggle" => "collapse", :href => "#collapseFive"}
+                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ac tortor vitae lorem lobortis.
+                    #collapseFive.panel-collapse.collapse.in{:style => ""}
+                      .panel-body.border.p-3
+                        %p.p-0.m-0 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ac tortor vitae lorem lobortis.
