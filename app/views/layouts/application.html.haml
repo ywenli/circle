@@ -11,7 +11,39 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    = render 'layouts/header'
+    - if user_signed_in?
+      / ログインしているとき
+      = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "float-right btn btn-light mt-4 mr-4"
+    - else
+      / ログインしていないとき
+      = link_to "ログイン", new_user_session_path, class: "float-right btn btn-info mt-4 mr-4"
+    .container
+      .row
+        .col-1
+          #wrapper
+            #sidebar-wrapper
+              %ul.sidebar-nav{:style => "margin-left:0;"}
+                %li.sidebar-brand
+                  %a#menu-toggle{:href => "#menu-toggle", :style => "margin-top:20px;float:right;"}
+                    %i.fas.fa-bars{"aria-hidden" => "true", :style => "font-size:20px !Important;"}
+                %li
+                  %a{:href => "#"}
+                    %i.fas.fa-user{"aria-hidden" => "true"}
+                    %span{:style => "margin-left:6px;"} マイページ
+                %li
+                  %a{:href => "#"}
+                    %i.fas.fa-cog{"aria-hidden" => "true"}
+                    %span{:style => "margin-left:6px;"} 設定
+                %li
+                  %a{:href => "#"}
+                    %i.fas.fa-question-circle{"aria-hidden" => "true"}
+                    %span{:style => "margin-left:6px;"} ヘルプ
+
+          / Page Content
+        .col-11
+          #page-content-wrapper
+            .container
+              = yield
 
     - if flash[:notice]
       .alert.alert-info
@@ -19,6 +51,11 @@
     - if flash[:alert]
       .alert.alert-danger
         = flash[:alert]
-    .container
-      = yield
+
     = render 'layouts/footer'
+
+:javascript
+  $("#menu-toggle").click(function(e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+  });
