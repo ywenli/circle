@@ -43,14 +43,8 @@
         .col-11
           #page-content-wrapper
             .container
+              = render 'devise/shared/error_messages'
               = yield
-
-    - if flash[:notice]
-      .alert.alert-info
-        = flash[:notice]
-    - if flash[:alert]
-      .alert.alert-danger
-        = flash[:alert]
 
     = render 'layouts/footer'
 
