@@ -11,6 +11,10 @@
 /db/*.sqlite3
 /db/*.sqlite3-journal
 
+# Ignore the mysql database.
+/db/mysql-data
+/mysql-data
+
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
@@ -31,4 +35,4 @@
 /config/master.key
 
 
-public/uploads/
+/zpublic/uploads/
