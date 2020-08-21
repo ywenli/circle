@@ -60,9 +60,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super(resource)
   # end
 
-  # プロフィール編集後にプロフィール画面にリダイレクト
-  def after_update_path_for(resource)
-    user_path(id: current_user.id)
-  end
+    # パスワードなしてプロフィールを編集できる
+    def update_resource(resource, params)
+      resource.update_without_password(params)
+    end
 
 end
