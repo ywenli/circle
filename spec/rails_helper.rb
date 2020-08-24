@@ -68,4 +68,8 @@ RSpec.configure do |config|
       driven_by :selenium, using: :headless_chrome, screen_size: [1280, 800], options: { args: ["headless", "disable-gpu", "no-sandbox", "disable-dev-shm-usage"] }
     end
   end
+
+  # rspecのテストコード中でFactory_botのメソッドを使用する際に、クラス名の指定を省略できるようにする
+  config.include FactoryBot::Syntax::Methods
+
 end
