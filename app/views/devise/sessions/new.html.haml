@@ -11,6 +11,10 @@
           = f.password_field :password, autocomplete: "off", placeholder: "パスワード", class: "form-control"
         .actions
           = f.submit "サインインする", class: "btn btn-primary w-100"
+        - if devise_mapping.rememberable?
+          .remember
+            = f.check_box :remember_me
+            = f.label :remember, "ログインしたままにする"
       %br/
       %p.devise-link
         アカウントをお持ちでないですか？
